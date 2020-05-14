@@ -5,6 +5,11 @@ Install Plugins required for CI Pipeline
 		cobertura -- install without restart
 		Build Pipeline Plugin  -- install without restart
 
+If face Plugin site SSLIssue:
+change the site URL from https to http
+	Manage Jenkins --> manage plugins -- Advanced -- change the URL as below
+	Before: https://updates.jenkins.io/update-center.json
+	After:  http://updates.jenkins.io/update-center.json
 			
 =================================================================================================================
 
