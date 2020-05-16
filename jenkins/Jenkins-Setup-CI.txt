@@ -10,7 +10,15 @@ change the site URL from https to http
 	Manage Jenkins --> manage plugins -- Advanced -- change the URL as below
 	Before: https://updates.jenkins.io/update-center.json
 	After:  http://updates.jenkins.io/update-center.json
-			
+	
+If face issue related to java SSLIssue:
+[ERROR] Plugin org.apache.maven.plugins:maven-enforcer-plugin:1.0 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-enforcer-plugin:jar:1.0: Could not transfer artifact org.apache.maven.plugins:maven-enforcer-plugin:pom:1.0 from/to central (https://repo.maven.apache.org/maven2): Transfer failed for https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-enforcer-plugin/1.0/maven-enforcer-plugin-1.0.pom: java.lang.RuntimeException: Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty -> [Help 1]
+Refer the solutions here: 
+https://stackoverflow.com/questions/6784463/error-trustanchors-parameter-must-be-non-empty
+
+Below solution worked for me.
+I ran sudo rm /etc/ssl/certs/java/cacerts and then sudo update-ca-certificates -f and this fixed my issue in kubuntu 18.04. – jsn May 13 '18 at 15:19 
+
 =================================================================================================================
 
 Java configuration in Jenkins console 
