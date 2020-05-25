@@ -1,5 +1,5 @@
 ---
-- hosts: 172.31.1.203
+- hosts: all
   become: yes
   tasks:
    - name: Install Java 1.8
@@ -27,10 +27,10 @@
       mode: 0755 
       state: directory 
       recurse: yes
-      #   - name: Deploy Applicaiton
-      #     copy:
-      #      src: /tmp/sampleapp.war
-      #      dest: /opt/tomcat/webapps
+   - name: Deploy Applicaiton
+     copy:
+      src: /tmp/sampleapp.war
+      dest: /opt/tomcat/webapps
    - name: Start Tomcat
      command: "nohup /opt/tomcat/bin/startup.sh"
      become_user: tomcat

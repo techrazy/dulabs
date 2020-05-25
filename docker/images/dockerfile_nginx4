@@ -1,0 +1,5 @@
+FROM anu_nginx:v3
+
+MAINTAINER Anurag
+
+ADD index.html /var/www/html
